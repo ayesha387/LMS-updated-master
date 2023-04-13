@@ -1,7 +1,9 @@
 package com.example.LMS.service;
 import com.example.LMS.entity.BookShelf;
 import com.example.LMS.model.BookShelfModel;
+import com.example.LMS.repository.BookRepo;
 import com.example.LMS.repository.BookShelfRepo;
+import com.example.LMS.repository.ShelfRepo;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 public class BookShelfService {
     @Autowired
     private BookShelfRepo bookShelfRepo;
+
 
     public BookShelfService(BookShelfRepo bookShelfRepo) {
         this.bookShelfRepo = bookShelfRepo;
@@ -28,7 +31,7 @@ public class BookShelfService {
 
     public BookShelf saveBookShelf(BookShelfModel bookShelfModel) {
 
-        return bookShelfModel.assemble(bookShelfRepo.save(bookShelfModel.disassemble())).disassemble();
+        return (bookShelfRepo.save(bookShelfModel.disassemble()));
 
     }
 

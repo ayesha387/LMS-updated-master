@@ -11,9 +11,9 @@ public class BookShelf {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @ManyToOne()
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @OneToMany(mappedBy = "book")
+    private List<BookShelf> bookShelfList;
+
     @ManyToOne()
     @JoinColumn(name = "shelf_id")
     private Shelf shelf;

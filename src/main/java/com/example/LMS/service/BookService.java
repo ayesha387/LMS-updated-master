@@ -22,7 +22,6 @@ public class BookService {
         this.bookShelfRepo = bookShelfRepo;
         this.shelfRepo = shelfRepo;
     }
-
     public List<Book> getAllBooks() {
         return bookRepo.findAll();
     }

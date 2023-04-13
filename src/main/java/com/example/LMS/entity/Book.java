@@ -18,8 +18,9 @@ public class Book {
     private String edition;
     @Column(name = "author")
     private String author;
-    @OneToMany(mappedBy = "book")
-    private List<BookShelf> bookShelfList;
+    @ManyToOne()
+    private Book book;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
